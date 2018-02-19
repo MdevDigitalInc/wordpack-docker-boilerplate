@@ -1,16 +1,24 @@
+// [ Moreira Development ] -----------
+// Wordpack-Docker-Boilerplate - Webpack.config
+//
+//
+
 'use strict';
 
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const AssetsPlugin = require('assets-webpack-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const WriteFilePlugin   = require('write-file-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const StyleLintPlugin = require('stylelint-webpack-plugin')
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 const path = require('path');
 const fs = require('fs');
 
-// Make sure any symlinks in the project folder are resolved:
-// https://github.com/facebookincubator/create-react-app/issues/637
 const appDirectory = fs.realpathSync(process.cwd());
 
 function resolveApp(relativePath) {
@@ -27,11 +35,14 @@ const paths = {
 const DEV = process.env.NODE_ENV === 'development';
 
 module.exports = {
-  bail: !DEV,
-  // We generate sourcemaps in production. This is slow but gives good results.
-  // You can exclude the *.map files from the build during deployment.
-  target: 'web',
   devtool: DEV ? 'cheap-eval-source-map' : 'source-map',
+  stats: {
+    colors: true,
+    children: false,
+    chunks: true,
+    chunkModules: true,
+    modules: false
+  },
   entry: [paths.appIndexJs],
   output: {
     path: paths.appBuild,
@@ -41,11 +52,17 @@ module.exports = {
     rules: [
       // Disable require.ensure as it's not a standard language feature.
       { parser: { requireEnsure: false } },
-      // Transform ES6 with Babel
+      // [ JS PROCESSING ] ---------------------/
       {
-        test: /\.js?$/,
+        test: /\.js$/,
+        enforce: 'pre',
+        loader: 'eslint-loader',
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.js$/,
         loader: 'babel-loader',
-        include: paths.appSrc,
+        exclude: /node_modules/
       },
       {
         test: /.scss$/,
@@ -56,6 +73,7 @@ module.exports = {
               loader: 'css-loader',
               options: {
                 importLoaders: 1,
+                url: false
               },
             },
             {
@@ -78,6 +96,84 @@ module.exports = {
           ],
         }),
       },
+      // [ IMAGE PROCESSING ] ---------------------/
+      {
+        test: /\.(png|jpg|jpeg|gif|svg)$/,
+        loaders: [ 'file-loader?context=src/img&name=img/[path][name].[ext]', {
+          loader: 'image-webpack-loader',
+          query: {
+            mozjpeg: {
+              progressive: true,
+              quality: DEV ?  95 : 5
+            },
+            gifsicle: {
+              interlaced: false,
+              optimizationLevel: 2
+            },
+            pngquant: {
+              quality: DEV ? '50-80' : '5-10',
+              speed: DEV ? 3 : 9
+            },
+            svgo: {
+              plugins: [
+                {
+                  removeViewBox: false
+                },
+                {
+                  removeEmptyAttrs: false
+                }
+              ]
+            }
+          }
+
+        }]
+      },
+      // [ FONT PROCESSING ] --------------------/
+      {
+        test: /\.eot(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          mimetype: 'application/vnd.ms-fontobject',
+          name: 'fonts/[name].[ext]',
+        }
+      },
+      {
+        test: /\.otf(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          mimetype: 'font/opentype',
+          name: 'fonts/[name].[ext]',
+        }
+      },
+      {
+        test: /\.ttf(\?v=\d+.\d+.\d+)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          mimetype: 'application/octet-stream',
+          name: 'fonts/[name].[ext]',
+        }
+      },
+      {
+        test: /\.woff(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          mimetype: 'application/font-woff',
+          name: 'fonts/[name].[ext]',
+        }
+      },
+      {
+        test: /\.woff2(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          mimetype: 'application/font-woff2',
+          name: 'fonts/[name].[ext]',
+        }
+      }
     ],
   },
   plugins: [
@@ -86,9 +182,34 @@ module.exports = {
       NODE_ENV: 'development', // use 'development' unless process.env.NODE_ENV is defined
       DEBUG: false,
     }),
+    new StyleLintPlugin({
+      syntax: 'scss'
+    }),
     new AssetsPlugin({
       path: paths.appBuild,
       filename: 'assets.json',
+    }),
+    new FaviconsWebpackPlugin({
+      logo: './src/img/favicon.png',
+      prefix: 'icons/',
+      emitStats: false,
+      persistentCache: true,
+      inject: true,
+      background: '#fff',
+      title: 'HTML 5 Boilerplate',
+
+      icons: {
+        android: true,
+        appleIcon: true,
+        appleStartup: true,
+        coast: false,
+        favicons: true,
+        firefox: true,
+        opengraph: false,
+        twitter: false,
+        yandex: false,
+        windows: false
+      }
     }),
     !DEV &&
       new webpack.optimize.UglifyJsPlugin({
