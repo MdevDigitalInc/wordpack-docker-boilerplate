@@ -1,0 +1,85 @@
+/*-------------------------------------
+ * UTITLITIES
+/-------------------------------------*/
+
+//Text Utilities
+
+.u-uppercase {
+  text-transform: uppercase;
+}
+
+.u-capitalize {
+  text-transform: capitalize;
+}
+
+.u-text-left {
+  text-align: left;
+}
+
+.u-text-right {
+  text-align: right;
+}
+
+.u-text-center {
+  text-align: center;
+}
+
+.u-align-top {
+  vertical-align: top;
+}
+
+.u-align-bottom {
+  vertical-align: bottom;
+}
+
+.u-align-middle {
+  vertical-align: middle;
+}
+
+.u-heading-weight {
+  font-weight: 700;
+}
+
+/* Disabling because of !important */
+/* stylelint-disable */
+.u-hidden-phone {
+  @media #{$phone-only} {
+    display: none !important;
+  }
+}
+
+.u-hidden-tablet {
+  @media #{$tablet-only} {
+    display: none !important;
+  }
+}
+
+.u-hidden-desktop {
+
+  @media #{$tablet-up} {
+    display: none !important;
+  }
+}
+
+/* stylelint-enable */
+.u-bold {
+  font-weight: $heading-weight;
+}
+
+.u-hidden {
+  display: none;
+}
+
+// Color Utilities
+.u-green {
+  color: $color-brand-primary;
+}
+
+.u-white {
+  color: $white;
+}
+
+.u-freeze-scroll {
+  height: 100vh;
+  overflow: hidden;
+}

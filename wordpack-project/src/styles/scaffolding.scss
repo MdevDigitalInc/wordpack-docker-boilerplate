@@ -1,0 +1,26 @@
+/*-------------------------------------
+ *	SCAFFOLDING & LAYOUT UTILITIES
+/-------------------------------------*/
+
+// Wrapper Classes
+
+.mdev-main-wrapper {
+  width: 95%;
+  margin: 0 auto;
+  position: relative;
+  padding: 0;
+  min-width: 320px;
+
+  @media #{$tablet-only} {
+    max-width: 800px;
+  }
+
+  @media #{$laptop-up} {
+    max-width: 1400px;
+  }
+
+  @media #{$xl-up} {
+    max-width: 1600px;
+  }
+}
+

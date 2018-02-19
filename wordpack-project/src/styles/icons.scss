@@ -1,0 +1,78 @@
+// Main Icons
+
+.mdev-icon {
+  display: inline-block;
+  color: inherit;
+  background: inherit;
+  overflow: hidden;
+}
+
+// Size Modifiers
+
+.--size-s {
+  width: 9.3vw;
+  height: 9.3vw;
+
+  @media #{$tablet-up} {
+    height: 1.3vw;
+    width: 1.3vw;
+  }
+}
+
+.--size-m {
+  width: 9.3vw;
+  height: 9.3vw;
+
+  @media #{$tablet-up} {
+    height: 1.8vw;
+    width: 1.8vw;
+  }
+}
+
+.--size-l {
+  width: 9.3vw;
+  height: 9.3vw;
+
+  @media #{$tablet-up} {
+    height: 2vw;
+    width: 2vw;
+  }
+}
+
+// Border Modifiers
+.--rounded-icon {
+  border-radius: $standard-radius;
+}
+
+// Style Modifiers
+.--workorder-icon {
+  background: red;
+}
+
+.--billing-icon {
+  background: green;
+}
+
+.--contact-icon {
+  background: blue;
+}
+
+.--user-icon {
+  background: orange;
+}
+
+.--time-icon {
+  background: pink;
+}
+
+.--date-icon {
+  background: purple;
+}
+
+.--info-icon {
+  background: blue;
+}
+
+.--back-icon {
+  background: $color-brand-primary;
+}
