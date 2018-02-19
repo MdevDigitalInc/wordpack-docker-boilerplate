@@ -1,0 +1,99 @@
+{
+  "processors": ["stylelint-processor-html"],
+  "rules": {
+    "color-no-invalid-hex": true,
+    "color-hex-case": ["lower",{
+      "message": "Lower case letters are easier to distinguish from numbers"
+    }],
+    "indentation": [ 2, {
+      "except": ["value"],
+      "severity": "warning",
+      "message": "Please Use 2 Spaces Or Lucas Gets Grumpy"
+    }],
+    "unit-whitelist": ["vw","vh", "px", "%", "s", "deg"],
+    "font-weight-notation": "numeric",
+    "number-leading-zero": ["never", {
+      "message": "Leading Zeroes are redundant - please remove them."
+    }],
+    "number-no-trailing-zeros": [true, {
+      "message": "Trailing Zeroes are redundant - please remove them"
+    }],
+    "number-max-precision": [3, {
+      "message": "Too many decimals Einstein - Lets keep it to 3 or the computer gets angry =)"
+    }],
+    "string-quotes": ["single", {
+      "message": "Single quotes for strings for consistency"
+    }],
+    "length-zero-no-unit": [true, {
+      "message": "Zero is Unitless in CSS"
+    }],
+    "unit-case": ["lower", {
+      "message" :"Lower case units are easier to distinguish from the numbers"
+    }],
+    "unit-no-unknown": [true, {
+      "message": "That is not a real CSS unit"
+    }],
+    "value-list-comma-newline-after": ["never-multi-line", {
+      "message": "Lets keep those in one line shall we?"
+    }],
+    "value-list-comma-space-after": "always-single-line",
+    "value-list-comma-space-before": "never-single-line",
+    "shorthand-property-no-redundant-values": [true, {
+      "message": "No Redundant values please"
+    }],
+    "property-case": "lower",
+    "property-no-vendor-prefix": [true, {
+      "message": "No vendor prefixes necessary. The Autoprefixer will take care of it =D"
+    }],
+    "declaration-bang-space-after": ["never", {
+      "message": "No space between bang and important in !important declarations"
+    }],
+    "declaration-bang-space-before": ["always",{
+      "message": "Space must preceed !important declarations"
+    }],
+    "declaration-colon-space-after": ["always-single-line", {
+      "message": "Space must come after colon on property declaration"
+    }],
+    "declaration-no-important": true,
+    "declaration-block-no-duplicate-properties": true,
+    "declaration-block-no-shorthand-property-overrides": true,
+    "declaration-block-trailing-semicolon": ["always",{
+      "message": "Don't forget to close property declarations with semicolon"
+    }],
+    "block-closing-brace-empty-line-before": "never",
+    "block-closing-brace-newline-after":"always",
+    "block-no-empty": true,
+    "block-opening-brace-space-before": "always",
+    "selector-attribute-brackets-space-inside": "always",
+    "selector-attribute-operator-space-after": "always",
+    "selector-attribute-operator-space-before": "always",
+    "selector-attribute-quotes": "always",
+    "selector-combinator-space-after": "always",
+    "selector-combinator-space-before": "always",
+    "selector-max-compound-selectors": [3,{
+      "message": "Lets keep it to 3 Inception levels shall we?"
+    }],
+    "selector-max-id": 0,
+    "selector-max-universal": 0,
+    "selector-no-vendor-prefix": [true,{
+      "message": "This Vendor Prefix Selector is outdated and can be replaced with something else."
+    }],
+    "selector-pseudo-class-case": "lower",
+    "selector-pseudo-class-no-unknown":true,
+    "selector-pseudo-class-parentheses-space-inside": "always",
+    "selector-pseudo-element-case": "lower",
+    "selector-pseudo-element-colon-notation": "single",
+    "selector-pseudo-element-no-unknown": true,
+    "selector-type-case": "lower",
+    "selector-type-no-unknown": true,
+    "selector-max-empty-lines": 0,
+    "selector-list-comma-newline-after": "always",
+    "max-nesting-depth": [3, {
+      "message": "Lets keep nesting levels to only 3 please"
+    }],
+    "no-extra-semicolons": true,
+    "no-invalid-double-slash-comments": [true, {
+      "message": "Double Slashes are not recognized as CSS comments please use /* comment */"
+    }]
+  }
+}

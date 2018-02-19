@@ -1,31 +1,10 @@
 {
-  "env": {
-    "development": {
-      "presets": [
-        [
-          "env",
-          {
-            "modules": false,
-            "targets": {
-              "ie9": true
-            }
-          }
-        ]
-      ]
-    },
-    "production": {
-      "presets": [
-        [
-          "env",
-          {
-            "modules": false,
-            "targets": {
-              "ie9": true,
-              "uglify": true
-            }
-          }
-        ]
-      ]
-    }
-  }
+  "presets": [
+    ["env", { 
+      "targets": {
+          "browsers": ["last 2 versions", "safari >= 7"]
+        } 
+    }],
+    ["stage-2"]
+  ]
 }
