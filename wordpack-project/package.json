@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "NODE_ENV=development node ./scripts/dev.js",
     "build": "NODE_ENV=production node ./scripts/prod.js",
-    "clean": "rm -r theme/dist/ && rm -r theme/img/",
+    "clean": "rm -r theme/dist/ && rm -r theme/img/ && sudo rm -r theme/wp-content/",
     "cleannode": "sudo rm -r node_modules/",
     "erasedb": "sudo rm -r .data/",
     "exportdb": "echo 'docker exec CONTAINERHEX /usr/bin/mysqldump -u root --password=root DATABASENAME > backup.sql'",
