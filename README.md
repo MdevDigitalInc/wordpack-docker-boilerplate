@@ -141,12 +141,15 @@ target for the exporting of the database.
 
 ```bash
 # Example: docker exec CONTAINER /usr/bin/mysqldump -u root --password=root DATABASE > backup.sql
-docker exec 4ea /usr/bin/mysqldump -u root --password=Mdevdb101! wordpress > wordpress_backup.sql
+docker exec 4ea /usr/bin/mysqldump -u root --password=Mdevdb101! wordpress > data-backup/wordpress_backup.sql
 ```
 
 What the command is basically doing is running the mysqldump located inside the
 virtual volume for that container. It then passes it the root password and
 selects the wordpress db to be extracted.
+
+Please note how you only need the first three letters of the Docker Container ID
+to target it
 
 ### Import SQL Database from Backup to Docker
 To load a backed up copy of the database onto your local docker container you
@@ -154,7 +157,7 @@ just have to essentially reverse the command above and run the following.
 
 ```bash
 # Example: cat backup.sql | docker exec -i CONTAINER /usr/bin/mysql -u root --password=root DATABASE
-cat wordpress_backup.sql | docker exec -i CONTAINER /usr/bin/mysql -u root --password=Mdevdb101! wordpress
+cat data-backup/wordpress_backup.sql | docker exec -i 4ea /usr/bin/mysql -u root --password=Mdevdb101! wordpress
 ```
 
 What this command is doing is reading the wordpress databse backup and piping it
