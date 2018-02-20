@@ -1,6 +1,7 @@
 ![Moreira Development](http://moreiradevelopment.io/social/googleLogo.png)
 
 # WordPack-Docker Boilerplate
+
 ## Wordpress + Docker + Webpack
 This tool aims to simplify Wordpress theme development by bringing it into the
 2018 world of local development and node support. Please make sure you install
