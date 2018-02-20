@@ -190,7 +190,7 @@ module.exports = {
       filename: 'assets.json',
     }),
     new FaviconsWebpackPlugin({
-      logo: './img/favicon.png',
+      logo: './src/img/favicon.png',
       prefix: 'icons/',
       emitStats: false,
       persistentCache: true,
