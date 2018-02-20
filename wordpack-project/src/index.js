@@ -7,7 +7,7 @@ import home from './js/home';
 
 // Images
 function requireAll(r) { r.keys().forEach(r); }
-requireAll(require.context('./img/', true, /\.*$/));
+requireAll(require.context('../img/', true, /\.*$/));
 
 /**
  * Populate Router instance with DOM routes

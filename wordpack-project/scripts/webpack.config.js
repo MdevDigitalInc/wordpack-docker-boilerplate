@@ -99,7 +99,7 @@ module.exports = {
       // [ IMAGE PROCESSING ] ---------------------/
       {
         test: /\.(png|jpg|jpeg|gif|svg)$/,
-        loaders: [ 'file-loader?context=src/img&name=img/[path][name].[ext]', {
+        loaders: [ 'file-loader?context=./img&name=img/[path][name].[ext]', {
           loader: 'image-webpack-loader',
           query: {
             mozjpeg: {
@@ -190,7 +190,7 @@ module.exports = {
       filename: 'assets.json',
     }),
     new FaviconsWebpackPlugin({
-      logo: './src/img/favicon.png',
+      logo: './img/favicon.png',
       prefix: 'icons/',
       emitStats: false,
       persistentCache: true,
