@@ -35,9 +35,14 @@ const paths = {
   nodeModules: resolveApp('node_modules'),
 };
 
+// DEV is used to store a True/False value depending on which environment is
+// currently being used. This is an easy way to switch things on and off to save
+// compiling time during dev work.
 const DEV = process.env.NODE_ENV === 'development';
 
+// [ Export Rules ]------------------------/
 module.exports = {
+  // Changes which type of sourcemap is output based on ENV.
   devtool: DEV ? 'cheap-eval-source-map' : 'source-map',
   stats: {
     colors: true,
@@ -46,11 +51,14 @@ module.exports = {
     chunkModules: true,
     modules: false
   },
+  // Define Entry File
   entry: [paths.entry],
+  // Define Output file name & pathing
   output: {
     path: paths.dist,
     filename: DEV ? 'bundle.js' : 'bundle.[hash:8].js',
   },
+  // [ Webpack Export Modules ] ----------------/
   module: {
     rules: [
       // Disable require.ensure as it's not a standard language feature.
@@ -67,6 +75,7 @@ module.exports = {
         loader: 'babel-loader',
         exclude: /node_modules/
       },
+      // [ SCSS PROCESSING ] ------------------/
       {
         test: /.scss$/,
         use: ExtractTextPlugin.extract({
@@ -76,20 +85,23 @@ module.exports = {
               loader: 'css-loader',
               options: {
                 importLoaders: 1,
+                // Resolve URL's in SCSS?
                 url: false
               },
             },
+            // Autoprefixing with PostCSS-Loader
+            // https://webpack.js.org/guides/migrating/#complex-options
             {
               loader: 'postcss-loader',
               options: {
-                ident: 'postcss', // https://webpack.js.org/guides/migrating/#complex-options
+                ident: 'postcss',
                 plugins: () => [
                   autoprefixer({
                     browsers: [
                       '>1%',
                       'last 4 versions',
                       'Firefox ESR',
-                      'not ie < 9', // React doesn't support IE8 anyway
+                      'not ie < 9'
                     ],
                   }),
                 ],
@@ -105,18 +117,22 @@ module.exports = {
         loaders: [ 'file-loader?context=./src/img&name=../img/[path][name].[ext]', {
           loader: 'image-webpack-loader',
           query: {
+            // JPG Processing quality level
             mozjpeg: {
               progressive: true,
               quality: DEV ?  95 : 5
             },
+            // Gif processing quality level
             gifsicle: {
               interlaced: false,
               optimizationLevel: 2
             },
+            // PNG processing quality level
             pngquant: {
               quality: DEV ? '50-80' : '5-10',
               speed: DEV ? 3 : 9
             },
+            // SVG Optimization Options
             svgo: {
               plugins: [
                 {
@@ -183,37 +199,41 @@ module.exports = {
     new ExtractTextPlugin(DEV ? 'bundle.css' : 'bundle.[hash:8].css'),
     new webpack.EnvironmentPlugin({
       NODE_ENV: 'development', // use 'development' unless process.env.NODE_ENV is defined
-      DEBUG: false,
+      DEBUG: true,
     }),
+    // Stylelint Plugin
     new StyleLintPlugin({
       syntax: 'scss'
     }),
+    // Assets Manifest
     new AssetsPlugin({
       path: paths.dist,
       filename: 'assets.json',
     }),
-    new FaviconsWebpackPlugin({
-      logo: './src/img/favicon.png',
-      prefix: 'icons/',
-      emitStats: false,
-      persistentCache: true,
-      inject: true,
-      background: '#fff',
-      title: 'HTML 5 Boilerplate',
+    // Favicon Generation
+    !DEV &&
+      new FaviconsWebpackPlugin({
+        logo: './src/img/favicon.png',
+        prefix: 'icons/',
+        emitStats: false,
+        persistentCache: true,
+        inject: true,
+        background: '#fff',
+        title: 'HTML 5 Boilerplate',
 
-      icons: {
-        android: true,
-        appleIcon: true,
-        appleStartup: true,
-        coast: false,
-        favicons: true,
-        firefox: true,
-        opengraph: false,
-        twitter: false,
-        yandex: false,
-        windows: false
-      }
-    }),
+        icons: {
+          android: true,
+          appleIcon: true,
+          appleStartup: true,
+          coast: false,
+          favicons: true,
+          firefox: true,
+          opengraph: false,
+          twitter: false,
+          yandex: false,
+          windows: false
+        }
+      }),
     !DEV &&
       new webpack.optimize.UglifyJsPlugin({
         compress: {
@@ -238,7 +258,7 @@ module.exports = {
         notify: false,
         host: 'localhost',
         port: 4000,
-        logLevel: 'silent',
+        logLevel: 'debug',
         files: ['./*.php'],
         proxy: 'http://localhost:9009/',
       }),
