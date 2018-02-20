@@ -27,7 +27,7 @@ function resolveApp(relativePath) {
 
 const paths = {
   appSrc: resolveApp('src'),
-  appBuild: resolveApp('dist'),
+  appBuild: resolveApp('theme/dist'),
   appIndexJs: resolveApp('src/index.js'),
   appNodeModules: resolveApp('node_modules'),
 };
@@ -99,7 +99,7 @@ module.exports = {
       // [ IMAGE PROCESSING ] ---------------------/
       {
         test: /\.(png|jpg|jpeg|gif|svg)$/,
-        loaders: [ 'file-loader?context=./img&name=img/[path][name].[ext]', {
+        loaders: [ 'file-loader?context=./src/img&name=../img/[path][name].[ext]', {
           loader: 'image-webpack-loader',
           query: {
             mozjpeg: {

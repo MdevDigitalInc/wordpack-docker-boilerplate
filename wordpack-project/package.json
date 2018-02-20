@@ -4,7 +4,8 @@
   "description": "Wordpress, Docker, Webpack, SASS, Autoprefixing, Image pipeline, Favicons",
   "scripts": {
     "dev": "NODE_ENV=development node ./scripts/dev.js",
-    "build": "NODE_ENV=production node ./scripts/build.js"
+    "build": "NODE_ENV=production node ./scripts/build.js",
+    "clean": "rm -r theme/dist/ && rm -r theme/img/"
   },
   "repository": {
     "type": "git",

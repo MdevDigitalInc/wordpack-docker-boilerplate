@@ -16,9 +16,9 @@ services:
       - db
     image: wordpress:4.9.4-apache
     volumes:
-      - ".:/var/www/html/wp-content/themes/mdev-theme"
-      - "./wp-content/plugins:/var/www/html/wp-content/plugins"
-      - "./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini"
+      - "./theme:/var/www/html/wp-content/themes/mdev-theme"
+      - "./theme/wp-content/plugins:/var/www/html/wp-content/plugins"
+      - "./theme/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini"
     links:
       - db
     ports:
