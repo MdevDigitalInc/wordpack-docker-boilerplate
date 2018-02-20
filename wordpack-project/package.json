@@ -1,11 +1,15 @@
 {
   "name": "wordpack-docker-boilerplate",
-  "version": "0.0.1",
+  "version": "0.0.5",
   "description": "Wordpress, Docker, Webpack, SASS, Autoprefixing, Image pipeline, Favicons",
   "scripts": {
     "dev": "NODE_ENV=development node ./scripts/dev.js",
-    "build": "NODE_ENV=production node ./scripts/build.js",
-    "clean": "rm -r theme/dist/ && rm -r theme/img/"
+    "build": "NODE_ENV=production node ./scripts/prod.js",
+    "clean": "rm -r theme/dist/ && rm -r theme/img/",
+    "cleannode": "sudo rm -r node_modules/",
+    "erasedb": "sudo rm -r .data/",
+    "exportdb": "echo 'docker exec CONTAINERHEX /usr/bin/mysqldump -u root --password=root DATABASENAME > backup.sql'",
+    "importdb": "echo 'cat backup.sql | docker exec -i CONTAINERHEX /usr/bin/mysql -u root --password=root DATABASENAME'"
   },
   "repository": {
     "type": "git",

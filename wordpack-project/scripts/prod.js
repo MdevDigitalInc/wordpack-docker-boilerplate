@@ -1,3 +1,9 @@
+// [ Moreira Development ] -----------
+// Wordpack-Docker-Boilerplate - Webpack.config
+//
+// Simple configurations for dev environment with webpack
+//
+
 'use strict';
 
 process.env.NODE_ENV = 'production';

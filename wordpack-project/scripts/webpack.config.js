@@ -1,10 +1,12 @@
 // [ Moreira Development ] -----------
 // Wordpack-Docker-Boilerplate - Webpack.config
 //
-//
+// Includes full asset pipeline, Favicon generation,
+// linting and autoprefixing.
 
 'use strict';
 
+// Webpack Tool Imports
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const AssetsPlugin = require('assets-webpack-plugin');
@@ -25,11 +27,12 @@ function resolveApp(relativePath) {
   return path.resolve(appDirectory, relativePath);
 }
 
+// Project Paths
 const paths = {
-  appSrc: resolveApp('src'),
-  appBuild: resolveApp('theme/dist'),
-  appIndexJs: resolveApp('src/index.js'),
-  appNodeModules: resolveApp('node_modules'),
+  source: resolveApp('src'),
+  dist: resolveApp('theme/dist'),
+  entry: resolveApp('src/index.js'),
+  nodeModules: resolveApp('node_modules'),
 };
 
 const DEV = process.env.NODE_ENV === 'development';
@@ -43,9 +46,9 @@ module.exports = {
     chunkModules: true,
     modules: false
   },
-  entry: [paths.appIndexJs],
+  entry: [paths.entry],
   output: {
-    path: paths.appBuild,
+    path: paths.dist,
     filename: DEV ? 'bundle.js' : 'bundle.[hash:8].js',
   },
   module: {
@@ -186,7 +189,7 @@ module.exports = {
       syntax: 'scss'
     }),
     new AssetsPlugin({
-      path: paths.appBuild,
+      path: paths.dist,
       filename: 'assets.json',
     }),
     new FaviconsWebpackPlugin({
