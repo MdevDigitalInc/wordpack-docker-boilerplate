@@ -2,11 +2,13 @@
 <html <?php language_attributes(); ?>>
 	<head>
 		<meta charset="<?php bloginfo( 'charset' ); ?>">
-    <!-- Facebook Open Graph -->
-    <meta property="og:url" content="http://moreiradevelopment.io"/>
-    <meta property="og:title" content="[ MOREIRA DEVELOPMENT PROJECT ] CLIENT | PROJECT "/>
-    <meta property="og:description" content="Base Project Install"/>
-    <meta property="og:image" content="http://moreiradevelopment.io/social/moreira-development-og.jpg"/>
+    <!-- [ FACEBOOK OG ] -->
+    <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
+    <meta property="fb:app_id" content="APP_ID_HERE" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url"  content="http://SITE_URL_HERE" />
+    <meta property="og:title" content="SITE_TITLE_HERE" />
+    <meta property="og:image" content="http://moreiradevelopment.io/social/moreira-development-twitcard.png" />
     <!-- Twitter Card  -->
     <meta name="twitter:card" content="http://moreiradevelopment.io/social/moreira-development-twitcard.png"/>
     <meta name="twitter:site" content="@SAMPLE"><meta name="twitter:creator" content="@SAMPLE"><meta name="twitter:title" content="[ MOREIRA DEVELOPMENT PROJECT ] CLIENT | PROJECT "/>
