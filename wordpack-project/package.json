@@ -32,7 +32,7 @@
     "jquery": "^3.2.1"
   },
   "devDependencies": {
-    "@moreira-development/sass-boilerplate": "^1.1.1",
+    "@moreira-development/sass-boilerplate": "^1.1.2",
     "assets-webpack-plugin": "^3.5.1",
     "autoprefixer": "^7.1.6",
     "babel-core": "^6.26.0",
