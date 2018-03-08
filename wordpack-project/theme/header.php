@@ -10,7 +10,7 @@
     <meta property="og:title" content="SITE_TITLE_HERE" />
     <meta property="og:image" content="http://moreiradevelopment.io/social/moreira-development-twitcard.png" />
     <!-- Twitter Card  -->
-    <meta name="twitter:card" content="http://moreiradevelopment.io/social/moreira-development-twitcard.png"/>
+    <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:site" content="@SAMPLE"><meta name="twitter:creator" content="@SAMPLE"><meta name="twitter:title" content="[ MOREIRA DEVELOPMENT PROJECT ] CLIENT | PROJECT "/>
     <meta name="twitter:description" content="Base Project Install"/>
     <meta name="twitter:image" content="http://moreiradevelopment.io/social/moreira-development-twitcard.png"/>
