@@ -33,7 +33,7 @@
     "unit-no-unknown": [true, {
       "message": "That is not a real CSS unit"
     }],
-    "value-list-comma-newline-after": ["never-multi-line", {
+    "value-list-comma-newline-after": ["always-multi-line", {
       "message": "Lets keep those in one line shall we?"
     }],
     "value-list-comma-space-after": "always-single-line",
