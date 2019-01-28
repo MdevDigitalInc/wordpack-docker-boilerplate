@@ -14,7 +14,7 @@ services:
   wordpress:
     depends_on:
       - db
-    image: wordpress:4.9.8-apache
+    image: wordpress:5.0.3-apache
     volumes:
       - "./theme:/var/www/html/wp-content/themes/mdev-theme"
       - "./theme/wp-content/plugins:/var/www/html/wp-content/plugins"
