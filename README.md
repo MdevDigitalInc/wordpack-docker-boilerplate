@@ -1,5 +1,21 @@
 ![MDEV Digital](https://mdev.digital/social/githubLogo.svg)
 
+# [ IMPORTANT ] :rotating_light:
+
+## First rodeo? READ THE DOCS!
+Please make sure you are familiar with the MDEV branching strategy and pull
+request rules. You can find details under `docs/branching.md`.
+
+There are also several other documents covering most of the functions and setup
+of this Vue boilerplate.
+
+## Starting a new project?
+Don't forget to populate all of the project placeholders with proper data based
+on the project at hand. You can easily find these by doing a search for `TODO`
+in the project either with `git grep` or your IDE of choice.
+
+---
+
 # WordPack-Docker Boilerplate
 
 ## Wordpress + Docker + Webpack
