@@ -89,6 +89,17 @@ npm run build
 npm run dev
 ```
 
+### First time Docker setup
+If this is your first time installing and setting up docker on this computer you
+will need to make sure to create a virtual machine and start it using docker.
+You can do so with the following two commands:
+
+```bash
+docker-machine create --driver virtualbox default
+docker-machine start
+```
+
+
 ### Local Development
 To develop on this platform locally you will need two terminals open, one to run
 docker and one to run the NPM Dev task that will keep the files compiling.
