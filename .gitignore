@@ -59,4 +59,5 @@ typings/
 dist/
 build/
 .data/
-wordpack-project/theme/img/
+package-lock.json
+
