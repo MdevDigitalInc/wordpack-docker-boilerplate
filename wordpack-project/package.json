@@ -23,7 +23,7 @@
     "Babel",
     "Stylelint"
   ],
-  "author": "Moreira Development",
+  "author": "MDEV Digital <contact@mdev.digital>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/MoreiraDevelopment/wordpack-docker-boilerplate/issues"
