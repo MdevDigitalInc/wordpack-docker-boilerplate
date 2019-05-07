@@ -218,7 +218,9 @@ module.exports = {
         emitStats: false,
         persistentCache: true,
         inject: true,
+        // TODO - Change background to brand color
         background: '#fff',
+        // TODO - Change Title
         title: 'HTML 5 Boilerplate',
 
         icons: {
