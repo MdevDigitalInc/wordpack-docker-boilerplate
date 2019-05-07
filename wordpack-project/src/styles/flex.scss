@@ -1,0 +1,105 @@
+/*-------------------------------------
+ *	FLEX UTILITIES
+ *-------------------------------------
+ *
+ * 	Collection of flex utilities for
+ * 	making the development of flex
+ * 	layouts as easy as combining classes
+ *
+/-------------------------------------*/
+
+/* Already Linted - Causing weird issues - LUM */
+/* stylelint-disable */
+.flex {
+  display: flex;
+
+  &-row {
+    flex-direction: row;
+  }
+
+  &-row-rev {
+    flex-direction: row-reverse;
+  }
+
+  &-column {
+    flex-direction: column;
+  }
+
+  &-column-rev {
+    flex-direction: column-reverse;
+  }
+
+  &-wrap {
+    flex-wrap: wrap;
+  }
+
+  &-nowrap {
+    flex-wrap: nowrap;
+  }
+
+  &-hor-start {
+    justify-content: flex-start;
+  }
+
+  &-hor-end {
+    justify-content: flex-end;
+  }
+
+  &-hor-center {
+    justify-content: center;
+  }
+
+  &-hor-between {
+    justify-content: space-between;
+  }
+
+  &-hor-around {
+    justify-content: space-around;
+  }
+
+  &-vert-start {
+    align-items: flex-start;
+  }
+
+  &-vert-end {
+    align-items: flex-end;
+  }
+
+  &-vert-center {
+    align-items: center;
+  }
+
+  &-vert-stretch {
+    align-items: stretch;
+  }
+
+  &-vert-baseline {
+    align-items: baseline;
+  }
+
+  &-group-start {
+
+    align-content: flex-start;
+  }
+
+  &-group-end {
+    align-content: flex-end;
+  }
+
+  &-group-center {
+    align-content: center;
+  }
+
+  &-group-stretch {
+    align-content: stretch;
+  }
+
+  &-group-between {
+    align-content: space-between;
+  }
+
+  &-space-around {
+    align-content: space-around;
+  }
+}
+/* stylelint-enable */

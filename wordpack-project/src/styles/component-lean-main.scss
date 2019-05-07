@@ -1,0 +1,22 @@
+/*-----------------------------------------]
+
+	[Component Lean Stylesheet] - V 1.0.1
+	Created On: Dec - 28 - 2016 - Ubuntu 16.04
+	Updated On: May - 14 - 2018 - Ubuntu 17.10
+
+	Desc: Lighter version of the main stylesheet
+	imports to only pass variables and mixins.
+
+----------------------------------------]*/
+
+/*----
+ Mdev Boilerplate
+-----*/
+@import '~@moreira-development/crowbar-sass/styles/global-main.scss';
+
+/*----
+	Global Variables
+-----*/
+@import './variables.scss';
+
+

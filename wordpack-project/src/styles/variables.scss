@@ -2,16 +2,18 @@
  * VARIABLES - PROJECT WIDE
 /-------------------------------------*/
 
+// TODO - Update with project style guide
 // Main colors
-$color-brand-primary: #13b2a9;
-$color-brand-accent: #333;
+$color-brand-primary: #16b1a9;
+$color-brand-accent: #c4ee1e;
+$color-brand-bkg: #0f1618;
 $bkg-light-grey: #fafafa;
 $black: #000;
 $white: #fff;
 
 
 // Main Font
-$main-font: 'Titillium Web', 'Helvetica', sans-serif;
+$main-font: 'Roboto', 'Helvetica', sans-serif;
 $heading-weight: 700;
 $subheading-weight: 500;
 $body-weight: 300;
@@ -24,3 +26,5 @@ $body-weight: 300;
 
 // Radius Variables
 $standard-radius: 4px;
+
+//Clipping Paths

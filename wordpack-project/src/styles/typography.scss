@@ -24,52 +24,49 @@ h6,.h6, {
   font-family: $main-font;
   font-weight: 700;
   color: inherit;
+  margin-bottom: 25px;
 }
 
 // Responsive Font Size Maps
 $p-font-sizes: (
-  null  : 14px,
-  $tablet-up : 16px,
-  $desktop-up: 19px
+  null  : 15px,
+  $landscape : 20px,
 );
 
 $h1-font-sizes: (
-  null  : 25px,
-  $tablet-up : 28px,
-  $desktop-up: 70px
+  null  : 50px,
+  $landscape: 120px
 );
 
 $h2-font-sizes: (
-  null  : 30px,
-  $tablet-up : 32px,
-  $desktop-up: 35px
+  null  : 40px,
+  $landscape: 80px
 );
 
 $h3-font-sizes: (
-  null  : 20px,
-  $tablet-up : 22px,
-  $desktop-up: 25px
+  null  : 35px,
+  $landscape: 70px
 );
 
 $h4-font-sizes: (
-  null  : 60%,
-  $tablet-up : 90%,
-  $desktop-up: 18px
+  null  : 30px,
+  $landscape: 60px
 );
 
 $h5-font-sizes: (
-  null  : 14px
+  null  : 20px,
+  $landscape: 50px
 );
 
 $h6-font-sizes: (
-  null  : 10px
+  null  : 15px,
+  $landscape: 30px
 );
 
 // Links
 $link-font-sizes: (
-  null  : 16px,
-  $tablet-up : 17px,
-  $desktop-up: 18px
+  null  : 15px,
+  $landscape: 25px
 );
 
 // Responsive Font-Size Mixing (Function Only)
@@ -91,7 +88,8 @@ $link-font-sizes: (
 /* Generate Responsive Sizing */
 
 p {
-  line-height: 24px;
+  line-height: 1.8;
+  font-weight: 400;
   @include font-size($p-font-sizes);
 }
 
@@ -143,3 +141,9 @@ a {
   }
 }
 
+.mdev-hero-text {
+  @include font-size($h1-font-sizes);
+  line-height: 120%;
+  color: $color-brand-primary;
+  font-weight: 700;
+}

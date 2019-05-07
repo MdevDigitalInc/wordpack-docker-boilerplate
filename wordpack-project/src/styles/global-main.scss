@@ -1,6 +1,8 @@
 /*-----------------------------------------]
 
-	[Global Main Stylesheet] -
+	[Global Main Stylesheet] - V 0.0.1
+	Created On: Dec - 28 - 2016 - Ubuntu 16.04
+	Updated On: Aug - 10 - 2018 - Ubuntu 18.04
 
 	Desc: Main stylesheet comprises the
 	imports necessary to style the website
@@ -9,14 +11,30 @@
 ----------------------------------------]*/
 
 /*----
-  MDEV Sass Boilerplate
+ Reset
 -----*/
-@import '~@moreira-development/sass-boilerplate';
+@import 'reset.scss';
 
 /*----
 	Global Variables
 -----*/
 @import './variables.scss';
+
+/*----
+ Mdev Boilerplate
+-----*/
+@import '~@moreira-development/crowbar-sass';
+//@import '~@moreira-development/crowbar-sass/styles/global-main.scss';
+
+/*----
+  Flex
+-----*/
+@import './flex.scss';
+
+/*----
+  Mixins
+-----*/
+@import './mixins.scss';
 
 /*----
 	Global Typography
@@ -29,25 +47,19 @@
 @import './utilities.scss';
 
 /*---
-  Icons
------*/
-@import './icons.scss';
-
-/*---
-  Forms
------*/
-@import './forms.scss';
-
-/*---
   WordPress Core
 -----*/
 @import './wp_core.scss';
 
-
 /*---
-  Scaffold
+  Scaffolding
 -----*/
 @import './scaffolding.scss';
+
+/*---
+  icons
+-----*/
+@import './icons.scss';
 
 /*----
   Buttons
@@ -55,11 +67,22 @@
 @import './buttons.scss';
 
 /*----
-  Theme Imports
+  Decorations
 -----*/
-@import './imports.scss';
+@import './decorations.scss';
+
+/*----
+  Animations
+-----*/
+@import './animations.scss';
+
+/*----
+  Forms
+-----*/
+@import './forms.scss';
 
 /*----
   Print
 -----*/
 @import './print.scss';
+

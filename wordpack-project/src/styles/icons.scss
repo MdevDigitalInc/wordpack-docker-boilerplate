@@ -1,5 +1,4 @@
 // Main Icons
-
 .mdev-icon {
   display: inline-block;
   color: inherit;
@@ -47,32 +46,4 @@
 // Style Modifiers
 .--workorder-icon {
   background: red;
-}
-
-.--billing-icon {
-  background: green;
-}
-
-.--contact-icon {
-  background: blue;
-}
-
-.--user-icon {
-  background: orange;
-}
-
-.--time-icon {
-  background: pink;
-}
-
-.--date-icon {
-  background: purple;
-}
-
-.--info-icon {
-  background: blue;
-}
-
-.--back-icon {
-  background: $color-brand-primary;
 }

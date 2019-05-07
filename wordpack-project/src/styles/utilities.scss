@@ -3,9 +3,12 @@
 /-------------------------------------*/
 
 //Text Utilities
-
 .u-uppercase {
   text-transform: uppercase;
+}
+
+.u-lowercase {
+  text-transform: lowercase;
 }
 
 .u-capitalize {
@@ -40,10 +43,49 @@
   font-weight: 700;
 }
 
+.u-bold {
+  font-weight: 700;
+}
+
+.u-medium {
+  font-weight: 500;
+}
+
+.u-normal {
+  font-weight: 400;
+}
+
+.u-black {
+  font-weight: 900;
+}
+
+.u-ultralight {
+  font-weight: 100;
+}
+
+.u-light {
+  font-weight: 300;
+}
+
+.u-italic {
+  font-style: italic;
+}
 /* Disabling because of !important */
 /* stylelint-disable */
 .u-hidden-phone {
   @media #{$phone-only} {
+    display: none !important;
+  }
+}
+
+.u-hidden-portrait {
+  @media #{$portrait} {
+    display: none !important;
+  }
+}
+
+.u-hidden-landscape {
+  @media #{$landscape} {
     display: none !important;
   }
 }
@@ -55,31 +97,73 @@
 }
 
 .u-hidden-desktop {
-
   @media #{$tablet-up} {
     display: none !important;
   }
 }
 
-/* stylelint-enable */
-.u-bold {
-  font-weight: $heading-weight;
+.u-screenreader {
+  width: 0!important;
+  height: 0!important;
+  transform: scaley(0);
+  opacity: 0!important;
+  position: absolute !important;
+  top: -9999px;
+  left: -9999px;
+  visibility: hidden!important;
 }
+
+.u-transparent {
+  opacity: 0 !important;
+}
+/* stylelint-enable */
 
 .u-hidden {
   display: none;
 }
 
-// Color Utilities
-.u-green {
-  color: $color-brand-primary;
-}
-
-.u-white {
-  color: $white;
-}
-
 .u-freeze-scroll {
   height: 100vh;
   overflow: hidden;
+}
+
+.u-truncate {
+  @include truncate('100%');
+}
+
+.u-no-select {
+  user-select: none;
+}
+
+// Color Utilities
+.u-c-black {
+  color: $color-brand-bkg;
+}
+
+.u-c-accent {
+  color: $color-brand-accent;
+}
+
+.u-c-primary {
+  color: $color-brand-primary;
+}
+
+.u-c-white {
+  color: $white;
+}
+
+.u-desk-only {
+  @media #{$portrait} {
+    display: none;
+  }
+}
+
+.u-phone-only {
+  @media #{$landscape} {
+    display: none;
+  }
+}
+
+.u-pointer {
+  cursor: pointer;
 }

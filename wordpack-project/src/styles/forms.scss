@@ -1,4 +1,4 @@
-
+// Global Form Styles
 form {
   width: 100%;
   position: relative;
@@ -8,34 +8,82 @@ form {
 /* stylelint-disable */
 /* Disabled because it is valid and I need this level of control*/
 .mdev-error {
-  border: 1px solid red!important;
+  border-top: 4px solid red !important;
+  border-bottom: 4px solid red !important;
   color: red!important;
 }
+
+$border-color-active: rgba(15, 22, 24, 1);
+$border-color-passive: rgba(15, 22, 24, 0);
 input {
   &[type="text"],
   &[type="email"],
+  &[type="tel"],
   &[type="password"],
   &[type="search"],
   &[type="url"] {
     width: 100%;
-    border-radius: $standard-radius;
-    padding: 10px;
-    margin-top: 20px;
-    border: 1px solid rgba( 122, 193, 66, 0 );
-    background: $bkg-light-grey;
+    border-radius: 0;
+    font-family: $main-font;
+    padding: 8px 0;
+    margin-top: 15px;
+    background: transparent;
     outline: 0;
-    transition: border, .3s;
+    transition: border .5s, background .5s;
+    border: none;
+    border-bottom: 4px solid $border-color-passive;
+    border-top: 4px solid $border-color-active;
 
     &:hover, &:focus, &:active {
-      border: 1px solid rgba( 122, 193, 66, 1 );
+      border-top: 4px solid $border-color-passive;
+      border-bottom: 4px solid $border-color-active;
+      background: $white;
+      padding: 8px;
+    }
+
+    &.--filled {
+      border-top: 4px solid $border-color-passive;
+      border-bottom: 4px solid $border-color-active;
+      text-transform: none;
+    }
+
+    &::placeholder {
+      color: $color-brand-bkg;
     }
   }
+}
 
-  &[type="button"],
-  &[type="submit"] {
-    @extend .mdev-base-btn;
+textarea {
+  width: 100%;
+  font-family: $main-font;
+  border-radius: 0;
+  padding: 8px 0;
+  margin-top: 15px;
+  background: transparent;
+  outline: 0;
+  transition: border .5s, background .5s;
+  border: none;
+  border-bottom: 4px solid $border-color-passive;
+  border-top: 4px solid $border-color-active;
+
+  &:hover, &:focus, &:active {
+    border-top: 4px solid $border-color-passive;
+    border-bottom: 4px solid $border-color-active;
+    background: $white;
+    padding: 8px;
+  }
+
+  &::placeholder {
+    color: $color-brand-bkg;
+  }
+
+  &.--filled {
+    border-top: 4px solid $border-color-passive;
+    text-transform: none!important;
+    border-bottom: 4px solid $border-color-active;
   }
 }
+
 
 /* stylelint-enable */
 

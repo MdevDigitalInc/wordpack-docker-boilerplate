@@ -1,0 +1,65 @@
+/*-----------------------------------------]
+
+	[Global Main Stylesheet] -
+
+	Desc: Main stylesheet comprises the
+	imports necessary to style the website
+	and avoids repetition inside the components
+
+----------------------------------------]*/
+
+/*----
+  MDEV Sass Boilerplate
+-----*/
+@import '~@moreira-development/crowbar-sass';
+
+/*----
+	Global Variables
+-----*/
+@import './variables.scss';
+
+/*----
+	Global Typography
+-----*/
+@import './typography.scss';
+
+/*----
+ 	Utilities
+-----*/
+@import './utilities.scss';
+
+/*---
+  Icons
+-----*/
+@import './icons.scss';
+
+/*---
+  Forms
+-----*/
+@import './forms.scss';
+
+/*---
+  WordPress Core
+-----*/
+@import './wp_core.scss';
+
+
+/*---
+  Scaffold
+-----*/
+@import './scaffolding.scss';
+
+/*----
+  Buttons
+-----*/
+@import './buttons.scss';
+
+/*----
+  Theme Imports
+-----*/
+@import './imports.scss';
+
+/*----
+  Print
+-----*/
+@import './print.scss';

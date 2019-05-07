@@ -1,0 +1,261 @@
+// Global Animations
+
+// Blur In Animation
+// -----------------------
+// Element starts out of focus and transparent
+// Element comes into focus when in view
+$blur-anim-props: filter 1s, opacity .6s;
+
+// Starting State
+.a-fade-in,
+.a-fade-in-full {
+  opacity: 0;
+  transition: $blur-anim-props;
+}
+
+// End State - Triggered by in-viewport directive
+.a-fade-in-full.in-viewport,
+.a-fade-in-full.above-viewport,
+.a-fade-in.in-viewport,
+.a-fade-in.in-viewport,
+.a-fade-in.above-viewport,
+.a-fade-in-lnd.in-viewport,
+.a-fade-in-lnd.in-viewport,
+.a-fade-in-lnd.above-viewport {
+  opacity: 1;
+}
+
+
+// Starting State
+.a-blur-in {
+  filter: blur(3px);
+  opacity: 0;
+  transition: $blur-anim-props;
+}
+
+// Landscape Only
+.a-blur-in-lnd {
+  @media #{$landscape} {
+    filter: blur(3px);
+    opacity: 0;
+    transition: $blur-anim-props;
+  }
+}
+
+// End State - Triggered by in-viewport directive
+.a-blur-in.in-viewport,
+.a-blur-in.in-viewport,
+.a-blur-in.above-viewport,
+.a-blur-in-lnd.in-viewport,
+.a-blur-in-lnd.fully-in-viewport,
+.a-blur-in-lnd.above-viewport {
+  opacity: 1;
+  filter: blur(0);
+}
+
+// Zoom Out Animation
+// -----------------------
+// Element Starts Large and out of focus
+// Element Comes down to normal size and in focus
+$zoom-out-anim-props: opacity .9s ease-out, filter 1.4s ease-out, transform 1.5s ease-out;
+
+.a-zoom-out {
+  transition: $zoom-out-anim-props;
+  transform: scale(2);
+  filter: blur(10px);
+  opacity: 0;
+}
+// Landscape Only
+.a-zoom-out-lnd {
+  @media #{$landscape} {
+    transition: $zoom-out-anim-props;
+    transform: scale(2);
+    filter: blur(10px);
+    opacity: 0;
+  }
+}
+
+// Zoom In Animation
+// -----------------------
+// Element Starts Small and out of focus
+// Element Comes down to normal size and in focus
+$zoom-in-anim-props: opacity .9s ease-out, filter 1.2s ease-out, transform 1.2s ease-out;
+
+.a-zoom-in {
+  transition: $zoom-in-anim-props;
+  transform: scale(.5);
+  filter: blur(10px);
+  opacity: 0;
+}
+// Landscape Only
+.a-zoom-in-lnd {
+  @media #{$landscape} {
+    transition: $zoom-in-anim-props;
+    transform: scale(.5);
+    filter: blur(10px);
+    opacity: 0;
+  }
+}
+
+// End State - Triggered by in-viewport directive
+.a-zoom-out-lnd.in-viewport,
+.a-zoom-out-lnd.above-viewport,
+.a-zoom-out.in-viewport,
+.a-zoom-out.above-viewport,
+.a-zoom-in-lnd.in-viewport,
+.a-zoom-in-lnd.above-viewport ,
+.a-zoom-in.in-viewport,
+.a-zoom-in.above-viewport {
+  opacity: 1;
+  filter: blur(0);
+  transform: scale(1);
+}
+
+// Fly-in From left
+// ---------------------
+// Element starts transparent and off view to the left
+// Element flies in from the left and becomes visible
+$flyin-anim-props: opacity .2s ease-out, transform .6s ease-out;
+
+.a-flyin {
+  opacity: 0;
+  transition: $flyin-anim-props;
+}
+
+// Because of opacity, gets its own class for landscape
+.a-flyin-lnd {
+
+  @media #{$landscape} {
+    opacity: 0;
+    transition: $flyin-anim-props;
+  }
+}
+
+.a-flyin-left {
+  transform: translate3d( -100%, 0, 0);
+
+  @media #{$phone-only} {
+    transform: translate3d( -50%, 0, 0);
+  }
+}
+
+// Landscape Only
+.a-flyin-lnd-left {
+  @media #{$portrait} {
+    transform: translate3d( -100%, 0, 0);
+  }
+  @media #{$phone-only} {
+    transform: translate3d( -50%, 0, 0);
+  }
+}
+
+// Fly-in From right
+// ---------------------
+// Element starts transparent and off view to the right
+// Element flies in from the left and becomes visible
+
+.a-flyin-right {
+  transform: translate3d( 100%, 0, 0);
+
+  @media #{$phone-only} {
+    transform: translate3d( 50%, 0, 0);
+  }
+}
+
+// Landscape Only
+.a-flyin-lnd-right {
+  @media #{$landscape} {
+    transform: translate3d( 100%, 0, 0);
+  }
+
+  @media #{$phone-only} {
+    transform: translate3d( 50%, 0, 0);
+  }
+}
+
+// Fly-in From Bottom
+// ---------------------
+// Element starts transparent and off view to the bottom
+// Element flies in from the left and becomes visible
+
+.a-flyin-bot {
+  transform: translate3d( 0, -100%, 0);
+}
+
+// Landscape Only
+.a-flyin-lnd-bot {
+  @media #{$landscape} {
+    transform: translate3d( 0, -100%, 0);
+  }
+}
+
+// Fly-in From Top
+// ---------------------
+// Element starts transparent and off view to the Top
+// Element flies in from the left and becomes visible
+
+.a-flyin-top {
+  transform: translate3d( 0, 100%, 0);
+}
+
+// Landscape Only
+.a-flyin-lnd-top {
+  @media #{$landscape} {
+    transform: translate3d( 0, 100%, 0);
+  }
+}
+
+// Trigger animation based on viewport
+.a-flyin-lnd-left.fully-in-viewport,
+.a-flyin-lnd-left.in-viewport,
+.a-flyin-lnd-left.above-viewport,
+.a-flyin-left.in-viewport,
+.a-flyin-left.above-viewport,
+.a-flyin-lnd-right.fully-in-viewport,
+.a-flyin-lnd-right.in-viewport,
+.a-flyin-lnd-right.above-viewport,
+.a-flyin-right.in-viewport,
+.a-flyin-right.above-viewport,
+.a-flyin-lnd-bot.fully-in-viewport,
+.a-flyin-lnd-bot.in-viewport,
+.a-flyin-lnd-bot.above-viewport,
+.a-flyin-bot.in-viewport,
+.a-flyin-bot.above-viewport,
+.a-flyin-lnd-top.in-fully-viewport,
+.a-flyin-lnd-top.in-viewport,
+.a-flyin-lnd-top.above-viewport,
+.a-flyin-top.in-viewport,
+.a-flyin-top.above-viewport,
+.a-in-viewport.in-viewport {
+  opacity: 1;
+  transform: translate3d( 0, 0, 0);
+}
+
+
+// 3D Rotates
+$rotate-anim-props: transform 1s, opacity .6s;
+// Starting State
+.a-rotate-x {
+  opacity: 0;
+  transform-origin: bottom;
+  transform: rotate3d( 1, 0, 1, 90deg);
+  transition: $rotate-anim-props;
+}
+
+.a-rotate-x-r {
+  opacity: 0;
+  transform-origin: bottom;
+  transform: rotate3d( 1, 0, 1, -90deg);
+  transition: $rotate-anim-props;
+}
+
+// End State - Triggered by in-viewport directive
+.a-rotate-x.in-viewport,
+.a-rotate-x.in-viewport,
+.a-rotate-x.above-viewport,
+.a-rotate-x-r.in-viewport,
+.a-rotate-x-r.in-viewport,
+.a-rotate-x-r.above-viewport {
+  opacity: 1;
+  transform: rotate3d( 1, 0, 1, 0);
+}
